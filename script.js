@@ -3,12 +3,14 @@ let answerAInput = document.querySelector("#answerAText");
 let answerBInput = document.querySelector("#answerBText");
 let answerCInput = document.querySelector("#answerCText");
 let answerDInput = document.querySelector("#answerDText");
+let highScoresButton = document.querySelector("#high");
 let timeEl = document.querySelector("#timer");
 let qIndex = 0;
 let secondsLeft = 60;
 let userScore = 0;
 let userChoice = "";
 let correctAnswer = "";
+let highScores = [];
 
 const questions = [
   {
@@ -65,18 +67,20 @@ function grade() {
   } else {
     alert(
       "Sorry, that is not the correct answer, the correct answer is " +
-        correctAnswer
+      correctAnswer
     );
     qIndex++;
     console.log(userScore);
     renderQuestion(qIndex);
   }
-  console.log("userchoice" + userChoice);
   userChoice = "";
-  console.log("userchoice" + userChoice);
 }
 
 function renderQuestion(qIndex) {
+  //check for end of quiz
+  if (qIndex === questions.length) {
+    endQuiz();
+  }
   //clear previous question and answer elements
   questionInput.innerHTML = "";
   answerAInput.innerHTML = "";
@@ -85,15 +89,13 @@ function renderQuestion(qIndex) {
   answerDInput.innerHTML = "";
 
   // update input fields with strings from each question and answer array based on index
-  //for (var i = 0; i < questions.length; i++) {
+
   questionInput.textContent = questions[qIndex].question;
   answerAInput.textContent = questions[qIndex].answerA;
   answerBInput.textContent = questions[qIndex].answerB;
   answerCInput.textContent = questions[qIndex].answerC;
   answerDInput.textContent = questions[qIndex].answerD;
   correctAnswer = questions[qIndex].correctAnswer;
-  // }
-
   console.log("qIndex is" + qIndex);
 }
 
@@ -104,7 +106,7 @@ function timer() {
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      //game over;
+      endQuiz();
     }
   }, 1000);
 }
@@ -114,6 +116,37 @@ function beginQuiz() {
     "Welcome to the Javascript Code Quiz. Answer the questions as quickly as possible. You have 60 seconds to complete 5 questions"
   );
 }
+function init() {
+  // Get stored scores from localStorage
+  var storedScores = JSON.parse(localStorage.getItem("scores"));
+
+  // If scores were retrieved from localStorage, update the scores array
+  if (storedScores !== null) {
+    highScores = storedScores;
+  }
+}
+
+function storeScores() {
+  // Stringify and set "scores" key in localStorage to highScores array
+  localStorage.setItem("scores", JSON.stringify(highScores));
+}
+
+function endQuiz() {
+  alert("The game is over! Thanks for playing. Your score is " + userScore);
+  let userName = prompt("Please enter your initials");
+  let scoreItem = [{ "name": userName, "score": userScore }];
+  highScores.push(scoreItem);
+  storeScores();
+  console.log("score item is" + scoreItem);
+  console.log("high scores are " + highScores);
+}
+
+function displayScores() {
+  for (i = 0; i < highScores.length; i++) {
+    alert(highScores[i]);
+  }
+}
+
 answerAInput.addEventListener("click", function () {
   userChoice = "A";
   console.log("userChoice" + userChoice);
@@ -138,6 +171,12 @@ answerDInput.addEventListener("click", function () {
   grade();
 });
 
+highScoresButton.addEventListener("click", function () {
+  displayScores();
+});
+
+
+init();
 beginQuiz();
 timer();
 renderQuestion(qIndex);

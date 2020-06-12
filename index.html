@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <ul class="navbar-nav mr-auto" >
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <span class="navbar-text mb-0 h1">View High Scores</span>
+                <button id="high" type="button" class="btn btn-primary">View High Scores</button>
             </li>
         </ul>
-        <ul class= "navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <span id= "timer" class="navbar-text mb-0 h1">Time Left</span>
+                <span id="timer" class="navbar-text mb-0 h1">Time Left</span>
             </li>
         </ul>
-      </nav>
+    </nav>
 </header>
+
 <body>
-    <div class = "container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12">
-              <h1>Welcome to the Code Quiz!</h1>
+                <h1>Welcome to the Javascript Quiz!</h1>
             </div>
         </div>
-        <div class ="row">
-        <div class= "col-md-3">
+        <div class="row">
+            <div class="col-md-3">
 
-        </div>
-        <div class= "col-md-6">
-            <div class="jumbotron">
-                <p id ="questionText" class="lead">Welcome to the code quiz! Answer 10 questions and see how you do. Click start to begin.</p>
-                <hr class="my-4">
-                <ul class="answers">
-                <li id = "answerAText" data-value="A" class="btn btn-primary btn-lg" href="#" role="button">Answer A</li>
-                <br></br>
-                <li id = "answerBText" data-value="B" class="btn btn-primary btn-lg" href="#" role="button">Answer B</li>
-                <br></br>
-                <li id = "answerCText" data-value="C" class="btn btn-primary btn-lg" href="#" role="button">Answer C</li>
-                <br></br>
-                <li id = "answerDText" data-value="D" class="btn btn-primary btn-lg" href="#" role="button">Answer D</li>
-                </ul>
             </div>
-        </div>
-        <div class= col-md-3>
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <p id="questionText" class="lead">Welcome to the code quiz! Answer 5 questions and see how you do.
+                        Click start to begin.</p>
+                    <hr class="my-4">
+                    <ul class="answers">
+                        <li id="answerAText" data-value="A" class="btn btn-primary btn-lg" href="#" role="button">Answer
+                            A</li>
+                        <br></br>
+                        <li id="answerBText" data-value="B" class="btn btn-primary btn-lg" href="#" role="button">Answer
+                            B</li>
+                        <br></br>
+                        <li id="answerCText" data-value="C" class="btn btn-primary btn-lg" href="#" role="button">Answer
+                            C</li>
+                        <br></br>
+                        <li id="answerDText" data-value="D" class="btn btn-primary btn-lg" href="#" role="button">Answer
+                            D</li>
+                    </ul>
+                </div>
+            </div>
+            <div class=col-md-3>
 
-        </div>
+            </div>
         </div>
     </div>
 
     <script src="./script.js"></script>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
 </body>
+
 </html>
