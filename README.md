@@ -11,6 +11,6 @@ The localStorage feature is used to store scores within the localStorage key. Th
 
 Check out the finished product here: https://paulsloderbeck.github.io/codequiz/
 
-![Code Quiz Screen Shot] (./codequiz/codequizscreenshot.png)
+![Code Quiz Screen Shot] (codequizscreenshot.png)
 
 
